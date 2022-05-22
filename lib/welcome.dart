@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'AnimatedWelcomeText.dart';
+
 class WelcomePageRoute extends MaterialPageRoute {
   WelcomePageRoute({Key? key, required String name}) : super(builder: (context){
     return WelcomePage(name: name);
   });
-
 }
 
 class WelcomePage extends StatelessWidget{
@@ -17,9 +18,7 @@ class WelcomePage extends StatelessWidget{
         title: Text('welcome page'),
       ),
       body:Center(
-        child:Text('привет, $name',
-            style: Theme.of(context).textTheme.headline4
-        )
+        child:AnimatedWelcomeText(contentText:'привет, $name')
       )
       ,
     );
