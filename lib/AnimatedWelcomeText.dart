@@ -8,7 +8,7 @@ class AnimatedWelcomeText extends StatefulWidget{
 }
 
 class _AnimatedWelcomeTextState extends State<AnimatedWelcomeText>{
-  double _marginTop=350;
+  double _marginTop=250;
   _updateState(){
     setState(() {
       _marginTop=10;
