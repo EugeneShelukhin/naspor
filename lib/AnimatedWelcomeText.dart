@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class AnimatedWelcomeText extends StatefulWidget{
   const AnimatedWelcomeText({Key? key, required this.contentText}):super(key: key);
@@ -22,8 +23,8 @@ class _AnimatedWelcomeTextState extends State<AnimatedWelcomeText>{
         crossAxisAlignment: CrossAxisAlignment.center,
       children:<Widget>[
         AnimatedContainer(
-          duration: Duration(milliseconds: 250),
-          //width: _width,
+          duration: Duration(milliseconds: 750),
+          curve:Curves.bounceOut,
           margin: EdgeInsets.only(top: _marginTop),
           child: Text(
             widget.contentText,
