@@ -38,29 +38,38 @@ class _LoginPageState extends State<LoginPage> {
               'Please specify your credentials',
               style: Theme.of(context).textTheme.headline5,
             ),
-
-            Text('login: $_login'),
-            TextField(decoration: InputDecoration(
-                border: InputBorder.none,
-                icon: Icon(Icons.login),
-                hintText: "Введите логин",
-                fillColor: Colors.black12,
-                filled: true),
-                onChanged: _changeName,),
-            Text('password: $_pass'),
-            TextField(decoration: InputDecoration(
-                border: InputBorder.none,
-                icon: Icon(Icons.password_rounded),
-                hintText: "Введите пароль",
-                fillColor: Colors.black12,
-                filled: true),
-                obscureText: true,
-                onChanged: _changePass,
+            Text('Enter your login:'),
+            new Container(
+              margin: const EdgeInsets.only(left:10.0, top:5.0, right:50.0, bottom: 5),
+              child:TextField(decoration: InputDecoration(
+                    border: InputBorder.none,
+                    icon: Icon(Icons.login),
+                    hintText: "Введите логин",
+                    fillColor: Colors.black12,
+                    filled: true),
+                    onChanged: _changeName,)
             ),
-            ElevatedButton(
+            Text('password: '),
+            new Container(
+              margin: const EdgeInsets.only(left:10.0, top:5.0, right:50.0, bottom: 5),
+              child:TextField(decoration: InputDecoration(
+                    border: InputBorder.none,
+                    icon: Icon(Icons.password_rounded),
+                    hintText: "Введите пароль",
+                    fillColor: Colors.black12,
+                    filled: true),
+                    obscureText: true,
+                    onChanged: _changePass,
+                )
+            ),
+            new Container(
+              margin: const EdgeInsets.only(left: 50,top:20.0, right: 50.0),
+              width: double.infinity, height: 50,
+              child: ElevatedButton(
                 child: Text("Login", style: TextStyle(fontSize: 22)),
-                onPressed: _loginPressed
-            ),
+                onPressed: _loginPressed,
+                //style: Size.fromHeight(),
+            )),
           ],
         ),
       ),
