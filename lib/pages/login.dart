@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:naspor_client/welcome.dart';
+import 'package:naspor_client/pages/welcome.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key, required this.setUserLogin}) : super(key: key);
 
+  final void Function(String text) setUserLogin;
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -21,16 +22,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _loginPressed(){
-    Navigator.of(context).push(WelcomePageRoute(name: _login));
+    //Navigator.of(context).push(WelcomePageRoute(name: ));
+    widget.setUserLogin(_login);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login Page'),
-      ),
-      body: Center(
+    return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -72,8 +70,6 @@ class _LoginPageState extends State<LoginPage> {
             )),
           ],
         ),
-      ),
-       // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      );
   }
 }
