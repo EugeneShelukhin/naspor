@@ -23,6 +23,8 @@ class _MyAppState extends State<MyApp> {
     setState(() => _userLogin=null);
   }
 
+  bool _isLoggedIn()=>_userLogin!=null;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,8 +44,17 @@ class _MyAppState extends State<MyApp> {
             ],
           ),],
         ),
-        body: (_userLogin ==null )? LoginPage(setUserLogin: _setUserLogin): WelcomePage(name: _userLogin!)
-        // This trailing comma makes auto-formatting nicer for build methods.
+        body: (_userLogin == null )? LoginPage(setUserLogin: _setUserLogin): WelcomePage(name: _userLogin!)
+        ,bottomNavigationBar: (_userLogin == null )? null: BottomNavigationBar(items: [
+          BottomNavigationBarItem(label:"home", icon: Icon(Icons.home)),
+          BottomNavigationBarItem(label:"open stakes", icon: Icon(Icons.stacked_line_chart)),
+          BottomNavigationBarItem(label:"friends", icon: Icon(Icons.people)),
+          //BottomNavigationBarItem(label:"Wallet",icon: Icon(Icons.account_balance_wallet_outlined)),
+      ],
+      currentIndex: 1,
+      iconSize: 20,
+        elevation: 50,
+      ),
       )
     );
   }

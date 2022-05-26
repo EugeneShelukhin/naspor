@@ -19,8 +19,7 @@ class _AnimatedWelcomeTextState extends State<AnimatedWelcomeText>{
   @override
   Widget build(BuildContext context){
     return Column(
-        //mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children:<Widget>[
         AnimatedContainer(
           duration: Duration(milliseconds: 750),
