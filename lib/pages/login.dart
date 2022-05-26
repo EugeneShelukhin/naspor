@@ -22,7 +22,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _loginPressed(){
-    //Navigator.of(context).push(WelcomePageRoute(name: ));
     widget.setUserLogin(_login);
   }
 

@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:naspor_client/pages/welcome.dart';
+import 'package:naspor_client/routes.dart';
 import 'pages/login.dart';
 
+
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home:const MyApp())
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -27,12 +35,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           title: Text('Naspor'),
           actions: [
@@ -51,11 +54,23 @@ class _MyAppState extends State<MyApp> {
           BottomNavigationBarItem(label:"friends", icon: Icon(Icons.people)),
           //BottomNavigationBarItem(label:"Wallet",icon: Icon(Icons.account_balance_wallet_outlined)),
       ],
-      currentIndex: 1,
+      currentIndex: 0,
       iconSize: 20,
-        elevation: 50,
+        onTap: (int index) {
+                  switch (index){
+                    case 0:
+                      Navigator.of(context).push(HomePageRoute());
+                      break;
+                    case 1:
+                      Navigator.of(context).push(OpenStakesPageRoute());
+                      break;
+                    case 2:
+                      Navigator.of(context).push(FriendsPageRoute());
+                      break;
+                  } },
+
+        //
       ),
-      )
     );
   }
 }
